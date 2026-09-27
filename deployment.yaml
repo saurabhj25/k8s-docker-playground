@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: demo-api-deployment
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: demo-api
+
+  template:
+    metadata:
+      labels:
+        app: demo-api
+
+    spec:
+      containers:
+        - name: demo-api
+          image: saurabhj25/k8s-docker-playground:2.0
+          ports:
+            - containerPort: 3000
